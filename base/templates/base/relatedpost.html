@@ -1,0 +1,72 @@
+<!-- <div class="container">
+      <div class="text-center py-3">
+        <h3>Similar Posts</h3>
+        <span class="text-danger fw-bold">--------</span>
+      </div>
+      {% for post in related_posts %}
+      <div class="row">
+          <div class="col-lg-5">
+            <div
+            class="blog-picture-background"
+            style="
+              background-image: url('{{post.feature.url}}');
+              height: 240px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+          >
+  </div>
+  
+          </div>
+          <div class="col-lg-7">
+            <div class="card-title text-dark">
+                <a href="{% url 'detail' post.slug %} " class="text-white"> {{post.title | truncatechars:40}} </a>
+              </div>
+        </div>
+      </div>
+      {% endfor %}
+
+  </div>
+   -->
+   <div class="container">
+    <div class="row">
+      <div class="text-center py-3">
+        <h3>Similar Posts</h3>
+        <span class="text-danger fw-bold">--------</span>
+      </div>
+      {% for post in related_posts %}
+      <div class="col-lg-4">
+        <div class="card bg-dark">
+          <div class="p-3">
+            <div
+              class="blog-picture-background"
+              style="
+                background-image: url('{{post.feature.url}}');
+                height: 240px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+              "
+            >
+              <p>
+                <span class="badge bg-danger text-center rounded-0"
+                  >{{post.category}}</span
+                >
+                <span class="badge bg-primary text-center float-end rounded-0"
+                  >{{post.created|timesince}} agos</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-title text-dark">
+              <a href="{% url 'detail' post.slug %} " class="text-white"> {{post.title | truncatechars:40}} </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  

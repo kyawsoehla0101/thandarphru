@@ -133,7 +133,7 @@ a {
     height: 585px;
     line-height: 585px;
 }
-.card-img-top{
+.card-img-top-about-contact{
     border-top-left-radius: 100px !important;
     border-bottom-right-radius: 100px !important;
 }
@@ -144,7 +144,26 @@ a {
 .border-bottom{
   border-bottom:3px solid red !important;
 } */
-.highlighted{
+.highlighted li{
   line-height: 20px;
-  color: red;
+  /* color: red; */
+}
+.blog-picture-background{
+  height: 70%;
+  width: 100%;
+  background-size: cover;
+   */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.blog-picture {
+  display: flex;
+  /* align-items: center; */
+  padding: 15px;
+  justify-content: center;
+  box-shadow: 0 1px 0px 0px white;
+  border-radius: 50%;
+  height: 360px;
+  width: 100%;
+  margin-left:auto;
 }

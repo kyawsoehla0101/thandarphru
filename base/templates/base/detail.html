@@ -1,0 +1,44 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-lg-8">
+        <div class="py-3">
+            <p class="text-uppercase text-secondary">{{post.author}}</p>
+            <p class="text-secondary">Uploaded by {{post.created|timesince}} agos</p>
+            <h5 class="text-danger">{{post.category}}</h5>
+            <h5 class="lh-base fw-bold">{{post.title}}</h5>
+            
+        </div>
+        <div>
+            <img src="{{post.feature.url}}" alt="" class="card-img-top">
+
+        </div>
+        <div class="py-3">
+            <p class="lh-lg">{{post.content|safe}}</p>
+            {% comment %} <div>
+                <form action="{% url 'like_post' post.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-primary btn-sm">
+                        Like
+                    </button>
+                </form>
+            </div> {% endcomment %}
+        </div>
+    </div>
+    <div class="col-lg-4">
+        {% if related_posts %}
+        {% include 'base/recentpost.html' %}
+        {% else %}
+        <div class="text-center py-3">
+            <h3>Similar Posts</h3>
+            <span class="text-danger fw-bold">--------</span>
+            <h5 class="py-4 text-danger">Similar Posts is not Found!</h5>
+          </div>
+        {% endif %}
+    </div>
+</div>
+<div>
+    {% include 'base/relatedpost.html' %}
+</div>
+</div>
+{% endblock content %}

@@ -133,7 +133,7 @@ a {
     height: 585px;
     line-height: 585px;
 }
-.card-img-top{
+.card-img-top-about-contact{
     border-top-left-radius: 100px !important;
     border-bottom-right-radius: 100px !important;
 }
@@ -146,5 +146,5 @@ a {
 } */
 .highlighted li{
   line-height: 20px;
-  color: red;
+  /* color: red; */
 }
