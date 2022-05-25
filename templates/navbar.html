@@ -24,7 +24,9 @@
             Category
           </a>
           <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item text-danger" href="{% url 'posts' %}">All Posts</a></li>
             {% for category in categories %}
+
             <li><a class="dropdown-item text-danger" href="{% url 'category' category|slugify %}">{{category.name}}</a></li>
             {% endfor %}
           </ul>

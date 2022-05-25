@@ -50,3 +50,8 @@ def category(request,slug):
     posts = Post.objects.filter(category=category)
     context = {'posts':posts,'categories':categories,'slug':slug}
     return render(request,'base/category.html',context)
+def posts(request):
+    categories = Category.objects.all()
+    posts = Post.objects.all()
+    context = {'posts':posts,'categories':categories}
+    return render(request,'base/post.html',context)
