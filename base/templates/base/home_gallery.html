@@ -7,6 +7,7 @@
         <div class="float-end">
             <a href="{% url 'gallery' %}" class="btn btn-primary btn-sm text-white">Show All </a>
         </div>
+      {% if gallery %}
       {% for image in gallery %}
       <div class="col-lg-3">
           <div class="card bg-dark my-2">
@@ -26,6 +27,9 @@
           </div>
         </div>
       {% endfor %}
+      {% else %}
+      <h1 class="text-white py-5 text-center">There is no images</h1>
+      {% endif %}
       
     </div>
   </div>

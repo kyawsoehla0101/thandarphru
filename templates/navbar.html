@@ -15,33 +15,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        {% url 'home' as url %}
         <li class="nav-item">
-          <a class="nav-link border-bottom" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
-          </a>
-          <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-danger" href="{% url 'posts' %}">All Posts</a></li>
-            {% for category in categories %}
-
-            <li><a class="dropdown-item text-danger" href="{% url 'category' category|slugify %}">{{category.name}}</a></li>
-            {% endfor %}
-          </ul>
+        {% for category in categories %}
+        {% url 'category' category.slug as url %}
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" href="{% url 'category' category.slug %}">{{category.name}}</a>
+          </li>{% endfor %}
+        <li class="nav-item">
+          <a class="nav-link" href='{% url 'home' %}#gallery'>Gallery</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href='#gallery'>Gallery</a>
+          <a class="nav-link" href='{% url 'home' %}#aboutme'>About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href='#aboutme'>About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href='#contactme'>Contact</a>
+          <a class="nav-link" href='{% url 'home' %}#contactme'>Contact</a>
         </li>
       </ul>
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          name = "q"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form>
     </div>
   </div>
 </nav>
+<hr />
 <!-- END NAVBAR -->

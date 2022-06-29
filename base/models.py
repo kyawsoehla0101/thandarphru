@@ -29,6 +29,30 @@ class Category(models.Model):
         super().save(*args, **kwargs)
     def __str__(self):
         return self.name
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(
+            default='',
+            editable=False,
+        )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    def get_absolute_url(self):
+        kwargs = {
+            'pk': self.id,
+            'slug': self.slug
+        }
+        return reverse('tagpost', kwargs=kwargs)
+
+    def save(self, *args, **kwargs):
+        value = self.name
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -39,9 +63,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(null=True)
     feature = models.ImageField(upload_to = 'static/postimages', blank= True,null=True)
-    tags = TaggableManager()
+    tags = models.ManyToManyField(Tag)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    is_feature = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)

@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
-import django_heroku
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z&#)0wo%o6d3rp+ut*^+20im3i)dv#t-58u8!1*++elta_sxy='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -31,7 +30,6 @@ INSTALLED_APPS = [
 
     # Customize Ap
     'base.apps.BaseConfig',
-    "taggit",
     'django_summernote',
 ]
 
@@ -126,7 +124,7 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-django_heroku.settings(locals())
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
