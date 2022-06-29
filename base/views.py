@@ -40,7 +40,8 @@ def detail(request,slug):
     post = Post.objects.get(slug=slug)
     recent_posts = Post.objects.all()[:3]
     categories = Category.objects.all()
-    related_posts = post.tags.similar_objects()
+    post_tags = post.tags.all()
+    related_posts = Post.objects.filter(tags__in = post_tags).exclude(slug=slug)
     context = {'post':post,'recent_posts':recent_posts,'related_posts':related_posts,'categories':categories}
     return render(request,'base/detail.html',context)
 

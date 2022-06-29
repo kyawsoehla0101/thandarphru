@@ -5,6 +5,7 @@
         <h3>Gallery</h3>
         <span class="text-danger fw-bold">--------</span>
       </div>
+    {% if images %}
     {% for image in images %}
     <div class="col-lg-3">
         <div class="card bg-dark my-2">
@@ -23,7 +24,9 @@
           </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %}{% else %}<h1 class="text-white py-5 text-center">
+      There is no Image
+    </h1>{% endif %}
     
   </div>
 </div>
