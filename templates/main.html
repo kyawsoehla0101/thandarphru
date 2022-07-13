@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -33,7 +33,9 @@
     <div class="container-fluid">
       {% include 'navbar.html' %}
     </div>
-    {% block content %}{% endblock content %}
+    {% block content %}
+
+    {% endblock content %}
 
     {% include 'footer.html' %}
     <!-- Boxicons CSS -->
