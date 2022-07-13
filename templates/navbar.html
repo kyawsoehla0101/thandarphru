@@ -20,13 +20,18 @@
         <li class="nav-item">
           <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
+        {% url 'posts' as url %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" href='{% url 'posts' %}'>All Posts</a>
+        </li>
         {% for category in categories %}
         {% url 'category' category.slug as url %}
         <li class="nav-item">
             <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" href="{% url 'category' category.slug %}">{{category.name}}</a>
           </li>{% endfor %}
+          {% url 'gallery' as url %}
         <li class="nav-item">
-          <a class="nav-link" href='{% url 'home' %}#gallery'>Gallery</a>
+          <a class="nav-link {% if request.path == url %}border-bottom{% endif %}" href='{% url 'gallery' %}'>Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href='{% url 'home' %}#aboutme'>About</a>
@@ -34,6 +39,7 @@
         <li class="nav-item">
           <a class="nav-link" href='{% url 'home' %}#contactme'>Contact</a>
         </li>
+        
       </ul>
       <form class="d-flex" role="search">
         <input

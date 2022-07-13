@@ -1,12 +1,15 @@
-{% extends 'main.html' %} {% load static %} {% block content %}
+{% extends 'main.html' %} {% load static %}
+{% block title %}{{post.title}}{% endblock title %}
+{% block content %}
 <div class="container">
 <div class="row">
     <div class="col-lg-8">
         <div class="py-3">
             <p class="text-uppercase text-secondary">{{post.author}}</p>
-            <p class="text-secondary">Uploaded by {{post.created|timesince}} agos</p>
+            <p class="text-secondary">Uploaded by {{post.created|timesince}} ago</p>
             <h5 class="text-danger">{{post.category}}</h5>
             <h5 class="lh-base fw-bold">{{post.title}}</h5>
+            <h6 class="lh-base fw-bold">{{post.short_content}}</h6>
             
         </div>
         <div class="pb-3">
@@ -30,9 +33,9 @@
         {% include 'base/recentpost.html' %}
         {% else %}
         <div class="text-center py-3">
-            <h3>Similar Posts</h3>
+            <h3>Recent Posts</h3>
             <span class="text-danger fw-bold">--------</span>
-            <h5 class="py-4 text-danger">Similar Posts is not Found!</h5>
+            <h5 class="py-4 text-danger">Recent Posts is not Found!</h5>
           </div>
         {% endif %}
 

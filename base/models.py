@@ -60,13 +60,14 @@ class Post(models.Model):
             default='',
             editable=False,
         )
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE ,default='Thandar Phru')
     content = models.TextField(null=True)
+    short_content = models.TextField(null=True,blank=True)
     feature = models.ImageField(upload_to = 'static/postimages', blank= True,null=True)
     tags = models.ManyToManyField(Tag)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    is_feature = models.BooleanField(default=False)
+    is_feature = models.BooleanField(default=True)
 
     class Meta:
         ordering = ('-created',)
@@ -96,7 +97,7 @@ class Post(models.Model):
             
     
 class Gallery(models.Model):
-    name = models.CharField(max_length=100, null=True,blank=True)
+    name = models.CharField(max_length=100, null=True,blank=True, default='Thandar Phru')
     image= models.ImageField(upload_to="static/%Y/%m/%d/images")
     created = models.DateTimeField(auto_now_add=True,null=True,blank=True)
     updated = models.DateTimeField(auto_now=True,null=True,blank=True)

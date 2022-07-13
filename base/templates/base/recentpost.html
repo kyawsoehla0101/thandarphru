@@ -22,7 +22,7 @@
           <div class="col-lg-7">
             <div class="card-title text-dark">
                 <a href="{% url 'detail' post.slug %} " class="text-white fs-6"> {{post.title | truncatechars:50}} </a>
-                <p class="py-3 text-secondary fs-6">{{post.created|timesince}} agos</p>
+                <p class="py-3 text-secondary fs-6">{{post.created|timesince}} ago</p>
               </div>
         </div>
       </div>

@@ -9,6 +9,6 @@ admin.site.register(Tag)
 admin.site.register(Gallery)
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
-    list_display = ('id','title','slug','author','category',)
+    list_display = ('id','title','slug','author','category','is_feature')
 
 admin.site.register(Post, PostAdmin)

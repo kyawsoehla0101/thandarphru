@@ -1,4 +1,7 @@
-{% extends 'main.html' %} {% load static %} {% block content %}
+{% extends 'main.html' %} {% load static %}
+{% block title %}
+{{slug}}
+{% endblock title %} {% block content %}
 
 <div class="container">
     <div class="row">
@@ -26,7 +29,7 @@
                   >{{post.category}}</span
                 >
                 <span class="badge bg-primary text-center float-end rounded-0"
-                  >{{post.created|timesince}} agos</span
+                  >{{post.created|timesince}} ago</span
                 >
               </p>
             </div>
