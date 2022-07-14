@@ -25,7 +25,7 @@
             {% endif %}
          </div>
         <div class="py-3">
-            <p class="lh-lg">{{post.content|safe}}</p>
+            <p class="lh-lg">{{post.content.html|safe}}</p>
         </div>
     </div>
     <div class="col-lg-4">

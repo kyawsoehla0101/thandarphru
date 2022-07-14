@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
     # Customize Ap
     'base.apps.BaseConfig',
-    'django_summernote',
+    "django_quill",
 ]
 
 MIDDLEWARE = [
@@ -148,7 +148,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
-TAGGIT_CASE_INSENSITIVE = True
+# TAGGIT_CASE_INSENSITIVE = True
 
 
 JAZZMIN_SETTINGS = {
