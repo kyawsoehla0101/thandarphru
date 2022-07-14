@@ -4,8 +4,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
-from django_quill.fields import QuillField
-
 
 
 
@@ -63,7 +61,7 @@ class Post(models.Model):
             editable=False,
         )
     author = models.ForeignKey(User, on_delete=models.CASCADE ,default='Thandar Phru')
-    content = QuillField(null=True,blank=True)
+    content = models.TextField(null=True)
     short_content = models.TextField(null=True,blank=True)
     feature = models.ImageField(upload_to = 'static/postimages', blank= True,null=True)
     tags = models.ManyToManyField(Tag)

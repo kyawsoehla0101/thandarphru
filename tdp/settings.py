@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
     # Customize Ap
     'base.apps.BaseConfig',
-    "django_quill",
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
