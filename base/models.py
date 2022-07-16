@@ -63,7 +63,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE ,default='Thandar Phru')
     content = models.TextField(null=True)
     short_content = models.TextField(null=True,blank=True)
-    feature = models.ImageField(upload_to = 'static/postimages', blank= True,null=True)
+    feature = models.ImageField(upload_to = 'static/postimages', blank= True,null=True,default='static/postimages/contactme.JPEG')
     tags = models.ManyToManyField(Tag)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
